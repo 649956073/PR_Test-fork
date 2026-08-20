@@ -5,8 +5,13 @@ on:
     types: [opened]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    name: 部署
+    runs-on: [ubuntu-latest, x64, small]
+    concurrency:
+      enable: true
+      max: 1
+      exceed-action: IGNORE
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "PR 已创建，workflow 触发成功这是更新的11:44"
+      - name: Run deploy
+      	run: echo "deploy"
