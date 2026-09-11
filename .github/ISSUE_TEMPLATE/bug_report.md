@@ -1,34 +1,28 @@
----
-name: "🐛 Bug 报告"
-description: "报告一个可复现的 bug"
-about: "使用此模板报告在项目中发现的错误"
-title: "[Bug]: "
-labels: ["bug"]
-assignees: []
----
-
-## 描述 Bug
-<!-- 清晰简洁地描述 bug -->
-
-## 复现步骤
-1. 转到 '...'
-2. 点击 '....'
-3. 滚动到 '....'
-4. 看到错误
-
-## 预期行为
-<!-- 期望发生什么 -->
-
-## 实际行为
-<!-- 实际发生什么 -->
-
-## 截图
-<!-- 如果适用，请添加截图 -->
-
-## 环境信息
- - 操作系统: <!-- 如: Windows 11 -->
- - 浏览器: <!-- 如: Chrome 115 -->
- - 版本: <!-- 如: v1.2.3 -->
-
-## 附加信息
-<!-- 其他相关上下文 -->
+name: Issue Report
+description: 问题上报
+title: "[问题]: "
+body:
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: 问题类型
+      options:
+        - Bug
+        - Feature Request
+        - Documentation
+    validations:
+      required: true
+  
+  - type: textarea
+    id: bug-details
+    attributes:
+      label: Bug 详情
+      description: 请描述 Bug 的症状
+    when: ${{ github.event.issue.issue_type == 'Bug' }}
+  
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: 功能描述
+      description: 请描述您想要的功能
+    when: ${{ github.event.issue.issue_type == 'Feature Request' }}
