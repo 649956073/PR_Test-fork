@@ -1,0 +1,56 @@
+name: ❓ 问题/讨论
+description: 提出一个问题或开始讨论
+title: "[Question] "
+labels: ["question"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎提问！我们会尽快为您解答。
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 问题分类
+      options:
+        - 使用方法/文档
+        - 配置问题
+        - 集成问题
+        - 性能咨询
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: 问题内容
+      description: 请详细描述您的问题
+      placeholder: |
+        具体问题：
+        已尝试的方法：
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 上下文信息
+      description: 提供背景信息帮助我们理解
+      placeholder: |
+        - 版本：
+        - 环境：
+        - 相关配置：
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: 参考链接（可选）
+      placeholder: |
+        - 文档链接：
+        - 相关 Issue：
+        - 其他参考：
