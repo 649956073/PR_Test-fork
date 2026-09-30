@@ -1,0 +1,19 @@
+name: 'Your Action Name'
+description: 'Brief description of what your action does'
+author: 'Your Name'
+
+inputs:
+  input-name:
+    description: 'Description of this input'
+    required: false
+    default: 'default-value'
+
+outputs:
+  output-name:
+    description: 'Description of this output'
+
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "Action executed"
+      shell: bash
